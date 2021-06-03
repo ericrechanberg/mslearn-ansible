@@ -14,6 +14,6 @@ steps:
     playbookPathAnsibleMachineOnRemoteMachine: '$(System.DefaultWorkingDirectory)'
     inventoriesRemoteMachine: 'file'
     inventoryFileSourceRemoteMachine: 'ansibleMachine'
-    inventoryFileAnsibleMachineOnRemoteMachine: '/home/azureuser/inventory.yml'
+    inventoryFileAnsibleMachineOnRemoteMachine: 'inventory.yml'
     args: '--private-key ~/.ssh/ansible_rsa'
     failOnStdErr: false'
