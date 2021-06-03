@@ -5,14 +5,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+
 - task: Ansible@0
   inputs:
     ansibleInterface: 'remoteMachine'
     connectionOverSsh: 'SSH - Ansible VM'
-    playbookSourceRemoteMachine: 'agentMachine'
-    playbookRootRemoteMachine: '$(System.DefaultWorkingDirectory)'
-    playbookPathLinkedArtifactOnRemoteMachine: '/home/azureuser/users.yml'
+    playbookSourceRemoteMachine: 'ansibleMachine'
+    playbookPathAnsibleMachineOnRemoteMachine: '$(System.DefaultWorkingDirectory)'
     inventoriesRemoteMachine: 'file'
-    inventoryFileSourceRemoteMachine: 'agentMachine'
-    inventoryFileLinkedArtifactOnRemoteMachine: '/home/azureuser/inventory.yml'
+    inventoryFileSourceRemoteMachine: 'ansibleMachine'
+    inventoryFileAnsibleMachineOnRemoteMachine: '/home/azureuser/inventory.yml'
     args: '--private-key ~/.ssh/ansible_rsa'
+    failOnStdErr: false'
